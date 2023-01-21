@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../../vue/pf-site-vue3"
+		},
+		{
+			"path": "../../react/blog-iberico"
 		}
 	],
 	"settings": {}

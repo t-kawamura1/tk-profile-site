@@ -1,0 +1,46 @@
+<div class="home" ref="home">
+  <tk-header></tk-header>
+  <div>
+    <tk-scroll-down
+      class="scroll-down"
+      [class.slide-left]="isOverScroll(90)"
+    ></tk-scroll-down>
+  </div>
+  <!-- <transition name="button-fade">
+    <div class="top-button-links-wrapper" v-if="show">
+      <tk-external-links class="external-links" />
+      <to-top-button
+        @scroll="scrollToAnchorPoint('HOME')"
+        class="to-top-button" />
+    </div>
+  </transition> -->
+  <section class="hero">
+    <tk-hero-item></tk-hero-item>
+  </section>
+  <div class="my-contents">
+    <section class="portfolio sec-fadein" ref="portfolio">
+      <div class="heading-wrapper">
+        <h2 class="heading sec-fadein">PORTFOLIO</h2>
+      </div>
+      <!-- <tk-portfolio-items></tk-portfolio-items> -->
+    </section>
+    <section class="skills" ref="skills">
+      <div class="heading-wrapper small">
+        <h2 class="heading sec-fadein">SKILLS</h2>
+      </div>
+      <!-- <tk-skills-set></tk-skills-set> -->
+    </section>
+    <section class="stances" ref="stances">
+      <div class="heading-wrapper">
+        <h2 class="heading sec-fadein">STANCE</h2>
+      </div>
+      <!-- <tk-stances-items></tk-stances-items> -->
+    </section>
+  </div>
+  <section class="profile sec-fadein" ref="profile">
+    <div class="heading-wrapper small">
+      <h2 class="heading sec-fadein">PROFILE</h2>
+    </div>
+    <!-- <tk-profile-item></tk-profile-item> -->
+  </section>
+</div>

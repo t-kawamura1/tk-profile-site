@@ -1,0 +1,48 @@
+<header class="header">
+  <tk-site-logo class="site-logo"></tk-site-logo>
+  <ng-container *ngIf="isMobile; else isPc">
+    <nav class="hamberger-menu" (click)="toggleDropdown()">
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul class="dropdown-list" *ngIf="isHome">
+        <li
+          class="dropdown-list-item"
+          *ngFor="let menu of homeMenuList"
+        >
+          {{ menu }}
+        </li>
+      </ul>
+      <ul class="dropdown-list" *ngIf="isPfDetail">
+        <li
+          class="dr«opdown-list-item"
+          *ngFor="let menu of pfDetailMenuList"
+        >
+          {{ menu }}
+        </li>
+      </ul>
+    </nav>
+  </ng-container>
+  <ng-template #isPc>
+    <nav class="home-nav">
+      <ul class="nav-list">
+        <li
+          class="nav-list-item"
+          *ngFor="let menu of homeMenuList"
+        >
+          {{ menu }}
+        </li>
+      </ul>
+    </nav>
+    <nav class="pfdetail-nav" *ngIf="isPfDetail">
+      <ul class="nav-list">
+        <li
+          class="nav-list-item"
+          *ngFor="let menu of pfDetailMenuList"
+        >
+          {{ menu }}
+        </li>
+      </ul>
+    </nav>
+  </ng-template>
+</header>

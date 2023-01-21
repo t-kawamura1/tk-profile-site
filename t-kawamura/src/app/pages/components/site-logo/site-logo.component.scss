@@ -1,0 +1,23 @@
+.logo {
+  display: inline-block;
+  height: 40px;
+  .logo-link {
+    display: inline-block;
+    color: #636363;
+    font-weight: 300;
+    line-height: 40px;
+  }
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 40px;
+    .logo-link {
+      font-size: 2.6rem;
+      line-height: 40px;
+    }
+  }
+}
