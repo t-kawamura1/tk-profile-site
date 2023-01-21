@@ -1,0 +1,12 @@
+version: '3'
+services:
+  t-kawamura:
+    build:
+      context: .
+    container_name: t-kawamura
+    volumes:
+      - .:/projects
+    ports:
+      - "4200:4200"
+    command: bash -c "cd t-kawamura && ng serve --host=0.0.0.0"
+    tty: true
