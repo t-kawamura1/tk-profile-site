@@ -7,7 +7,7 @@ import {MyContentsComponent} from '../components/my-contents/my-contents.compone
 import {ToTopButtonComponent} from '../components/to-top-button/to-top-button.component';
 import {ProfileItemComponent} from './profile-item/profile-item.component';
 
-type ElementName =
+export type ElementName =
   | 'HOME'
   | 'CAREER'
   | 'SKILL'
@@ -31,6 +31,8 @@ type ElementName =
 export class HomeComponent implements OnInit {
 
   @ViewChild('home') home!: ElementRef
+  @ViewChild('career') career!: ElementRef
+  @ViewChild('skill') skill!: ElementRef
   @ViewChild('profile') profile!: ElementRef
 
   constructor(
@@ -42,7 +44,7 @@ export class HomeComponent implements OnInit {
   }
 
   @HostListener('window:scroll')
-  showSection = () => {
+  showSection(): void {
     const sections = this.document.querySelectorAll('.sec-fadein')
     if (sections == null) return
 
@@ -69,10 +71,13 @@ export class HomeComponent implements OnInit {
         this.home.nativeElement.scrollIntoView({ behavior: 'smooth'})
         break
       case 'CAREER':
+        this.career.nativeElement.scrollIntoView({ behavior: 'smooth'})
         break
       case 'SKILL':
+        this.skill.nativeElement.scrollIntoView({ behavior: 'smooth'})
         break
       case 'PROFILE':
+        this.profile.nativeElement.scrollIntoView({ behavior: 'smooth'})
         break
     }
   }

@@ -5,18 +5,11 @@
       <span></span>
       <span></span>
       <span></span>
-      <ul class="dropdown-list" *ngIf="isHome">
+      <ul class="dropdown-list">
         <li
           class="dropdown-list-item"
           *ngFor="let menu of homeMenuList"
-        >
-          {{ menu }}
-        </li>
-      </ul>
-      <ul class="dropdown-list" *ngIf="isPfDetail">
-        <li
-          class="dr«opdown-list-item"
-          *ngFor="let menu of pfDetailMenuList"
+          (click)="selectMenu.emit(menu)"
         >
           {{ menu }}
         </li>
@@ -29,16 +22,7 @@
         <li
           class="nav-list-item"
           *ngFor="let menu of homeMenuList"
-        >
-          {{ menu }}
-        </li>
-      </ul>
-    </nav>
-    <nav class="pfdetail-nav" *ngIf="isPfDetail">
-      <ul class="nav-list">
-        <li
-          class="nav-list-item"
-          *ngFor="let menu of pfDetailMenuList"
+          (click)="selectMenu.emit(menu)"
         >
           {{ menu }}
         </li>

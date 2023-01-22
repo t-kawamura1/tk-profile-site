@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {SiteLogoComponent} from '../site-logo/site-logo.component';
-import {Router} from '@angular/router';
+import {ElementName} from '../../home/home.component';
 
 @Component({
   selector: 'tk-header',
@@ -15,32 +15,19 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent {
 
+  @Output()
+  readonly selectMenu = new EventEmitter<ElementName>();
+
   constructor(
-    private readonly router: Router
   ) {}
 
-  readonly homeMenuList = [
-    'PORTFOLIO',
-    'SKILLS',
-    'STANCES',
+  readonly homeMenuList: Exclude<ElementName, 'HOME'>[] = [
+    'CAREER',
+    'SKILL',
     'PROFILE',
   ]
-  readonly pfDetailMenuList = [
-    'Lemon Sour DB',
-    'T.KAWAMURA',
-  ]
 
-  isMobile = window.matchMedia('(max-width: 768px)').matches
-
-  readonly homeUrl = new RegExp('\/home\/')
-  readonly pfDetailUrl = new RegExp('\/portfolio-detail\/')
-
-  get isHome(): boolean {
-    return this.homeUrl.test(this.router.url)
-  }
-  get isPfDetail(): boolean {
-    return this.pfDetailUrl.test(this.router.url)
-  }
+  readonly isMobile = window.matchMedia('(max-width: 768px)').matches
 
   isActive = false
 

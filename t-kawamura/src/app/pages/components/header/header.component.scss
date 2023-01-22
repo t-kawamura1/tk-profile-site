@@ -12,33 +12,12 @@
     background-color: rgba(255, 255, 255, 1);
   }
   .home-nav {
-    width: 450px;
     .nav-list {
       display: flex;
-      justify-content: space-between;
-      padding: 0;
+      gap: 40px;
       .nav-list-item {
         display: inline-block;
         font-weight: 300;
-        line-height: 40px;
-        font-size: 1.8rem;
-        &:hover {
-          opacity: 0.5;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-  .pfdetail-nav {
-    width:300px;
-    .nav-list {
-      display: flex;
-      justify-content: space-between;
-      padding: 0;
-      .nav-list-item {
-        display: inline-block;
-        font-weight: 300;
-        color: #636363;
         line-height: 40px;
         font-size: 1.8rem;
         &:hover {
@@ -58,7 +37,6 @@
       width: 40px;
       height: 40px;
       position: relative;
-      cursor: pointer;
       > span {
         display: inline-block;
         position: absolute;
@@ -89,7 +67,6 @@
         transition: all 0.4s;
         .dropdown-list-item {
           padding: 12px 0;
-          cursor: pointer;
           font-size: 1.5rem;
         }
       }
@@ -110,28 +87,6 @@
         }
         .dropdown-list {
           opacity: 1;
-        }
-      }
-    }
-    .home-nav {
-      width: 270px;
-      height: 40px;
-      .nav-list {
-        padding: 0;
-        .nav-list-item {
-          line-height: 40px;
-          font-size: 1.3rem;
-        }
-      }
-    }
-    .pfdetail-nav {
-      width: 220px;
-      height: 40px;
-      .nav-list {
-        padding: 0;
-        .nav-list-item {
-          line-height: 40px;
-          font-size: 1.3rem;
         }
       }
     }
