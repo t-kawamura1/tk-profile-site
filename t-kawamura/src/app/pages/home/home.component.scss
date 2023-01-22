@@ -37,6 +37,16 @@
   }
 }
 
+.sec-fadein {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.0s;
+  &.scrollin {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .contents-wrp {
   transition: all .5s ease-in-out;
   opacity: 0;

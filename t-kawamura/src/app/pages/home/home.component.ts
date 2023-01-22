@@ -28,8 +28,8 @@ type ElementName =
 })
 export class HomeComponent implements OnInit {
 
-  @ViewChild('home') home!: ElementRef;
-  @ViewChild('profile') profile!: ElementRef;
+  @ViewChild('home') home!: ElementRef
+  @ViewChild('profile') profile!: ElementRef
 
   constructor(
     @Inject(DOCUMENT) private readonly document: Document,
@@ -40,6 +40,17 @@ export class HomeComponent implements OnInit {
   }
 
   @HostListener('window:scroll')
+  showSection = () => {
+    const sections = this.document.querySelectorAll('.sec-fadein')
+    if (sections == null) return
+
+    sections.forEach(el => {
+      const elY = window.scrollY + el.getBoundingClientRect().top
+      if (window.scrollY + window.innerHeight > elY) {
+        el.classList.add('scrollin')
+      }
+    })
+  }
 
   isOverScroll(n: number): boolean {
     return window.scrollY > n
@@ -47,13 +58,13 @@ export class HomeComponent implements OnInit {
 
   isOnProfile(): boolean {
     if (this.profile === undefined) return false
-    return window.innerHeight > this.profile.nativeElement.getBoundingClientRect().top;
+    return window.innerHeight > this.profile.nativeElement.getBoundingClientRect().top
   }
 
   scrollToAnchorPoint(elName: ElementName): void {
     switch (elName) {
       case 'HOME':
-        this.home.nativeElement.scrollIntoView({ behavior: 'smooth'});
+        this.home.nativeElement.scrollIntoView({ behavior: 'smooth'})
         break
       case 'CAREER':
         break
