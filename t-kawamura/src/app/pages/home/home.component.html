@@ -1,4 +1,4 @@
-<div class="home" ref="home">
+<div class="home" #home>
   <tk-header></tk-header>
   <div>
     <tk-scroll-down
@@ -6,11 +6,12 @@
       [class.slide-left]="isOverScroll(90)"
     ></tk-scroll-down>
   </div>
-  <div class="contents-wrp" [class.show]="isOverScroll(500)">
+  <div class="contents-wrp" [class.show]="isOverScroll(300)">
     <tk-my-contents class="my-contents"></tk-my-contents>
-    <!-- <to-top-button
-      @scroll="scrollToAnchorPoint('HOME')"
-      class="to-top-button" /> -->
+    <tk-to-top-button
+      (click)="scrollToAnchorPoint('HOME')"
+      class="to-top-button"
+    ></tk-to-top-button>
   </div>
   <section class="hero">
     <tk-hero-item></tk-hero-item>
@@ -35,7 +36,7 @@
       <!-- <tk-stances-items></tk-stances-items> -->
     </section>
   </div>
-  <section class="profile sec-fadein" ref="profile">
+  <section class="profile sec-fadein" #profile>
     <div class="heading-wrapper small">
       <h2 class="heading sec-fadein">PROFILE</h2>
     </div>

@@ -35,9 +35,9 @@
 }
 
 .contents-wrp {
+  transition: all .5s ease-in-out;
   opacity: 0;
   &.show {
-    transition: opacity .2s;
     opacity: 1;
   }
 }
@@ -47,6 +47,13 @@
   z-index: 11;
   top: 35%;
   right: 15px;
+}
+
+.to-top-button {
+  position: fixed;
+  z-index: 9;
+  bottom: 10px;
+  right: 10px;
 }
 
 .hero {
