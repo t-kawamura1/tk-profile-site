@@ -5,6 +5,7 @@ import {HeaderComponent} from '../components/header/header.component';
 import {ScrollDownComponent} from '../components/scroll-down/scroll-down.component';
 import {MyContentsComponent} from '../components/my-contents/my-contents.component';
 import {ToTopButtonComponent} from '../components/to-top-button/to-top-button.component';
+import {ProfileItemComponent} from './profile-item/profile-item.component';
 
 type ElementName =
   | 'HOME'
@@ -22,6 +23,7 @@ type ElementName =
     ScrollDownComponent,
     MyContentsComponent,
     ToTopButtonComponent,
+    ProfileItemComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
