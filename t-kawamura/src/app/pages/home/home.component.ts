@@ -3,6 +3,7 @@ import { CommonModule, DOCUMENT } from '@angular/common';
 import {HeroItemComponent} from './hero-item/hero-item.component';
 import {HeaderComponent} from '../components/header/header.component';
 import {ScrollDownComponent} from '../components/scroll-down/scroll-down.component';
+import {MyContentsComponent} from '../components/my-contents/my-contents.component';
 
 @Component({
   selector: 'tk-home',
@@ -12,6 +13,7 @@ import {ScrollDownComponent} from '../components/scroll-down/scroll-down.compone
     HeaderComponent,
     HeroItemComponent,
     ScrollDownComponent,
+    MyContentsComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']

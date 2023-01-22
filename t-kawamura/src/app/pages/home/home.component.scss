@@ -34,7 +34,15 @@
   }
 }
 
-.external-links {
+.contents-wrp {
+  opacity: 0;
+  &.show {
+    transition: opacity .2s;
+    opacity: 1;
+  }
+}
+
+.my-contents {
   position: fixed;
   z-index: 11;
   top: 35%;
@@ -45,7 +53,7 @@
   padding: 280px 60px 460px;
 }
 
-.my-contents {
+.about-me {
   position: relative;
   z-index: 2;
   &::before {
@@ -113,15 +121,15 @@
         font-size: 2rem;
       }
     }
-    .external-links {
+    .my-contents {
       top: 93%;
-      right: 22%;
+      right: 18%;
     }
     .hero {
       padding: 160px 30px 160px;
     }
 
-    .my-contents {
+    .about-me {
       .portfolio {
         padding: 50px 30px 180px;
       }

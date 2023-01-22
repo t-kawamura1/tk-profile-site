@@ -6,18 +6,16 @@
       [class.slide-left]="isOverScroll(90)"
     ></tk-scroll-down>
   </div>
-  <!-- <transition name="button-fade">
-    <div class="top-button-links-wrapper" v-if="show">
-      <tk-external-links class="external-links" />
-      <to-top-button
-        @scroll="scrollToAnchorPoint('HOME')"
-        class="to-top-button" />
-    </div>
-  </transition> -->
+  <div class="contents-wrp" [class.show]="isOverScroll(500)">
+    <tk-my-contents class="my-contents"></tk-my-contents>
+    <!-- <to-top-button
+      @scroll="scrollToAnchorPoint('HOME')"
+      class="to-top-button" /> -->
+  </div>
   <section class="hero">
     <tk-hero-item></tk-hero-item>
   </section>
-  <div class="my-contents">
+  <div class="about-me">
     <section class="portfolio sec-fadein" ref="portfolio">
       <div class="heading-wrapper">
         <h2 class="heading sec-fadein">PORTFOLIO</h2>
