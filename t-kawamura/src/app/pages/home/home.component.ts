@@ -29,6 +29,7 @@ type ElementName =
 export class HomeComponent implements OnInit {
 
   @ViewChild('home') home!: ElementRef;
+  @ViewChild('profile') profile!: ElementRef;
 
   constructor(
     @Inject(DOCUMENT) private readonly document: Document,
@@ -39,12 +40,14 @@ export class HomeComponent implements OnInit {
   }
 
   @HostListener('window:scroll')
-  // onScroll(): void {
-  //   console.log(this.scrollY)
-  // }
 
   isOverScroll(n: number): boolean {
     return window.scrollY > n
+  }
+
+  isOnProfile(): boolean {
+    if (this.profile === undefined) return false
+    return window.innerHeight > this.profile.nativeElement.getBoundingClientRect().top;
   }
 
   scrollToAnchorPoint(elName: ElementName): void {

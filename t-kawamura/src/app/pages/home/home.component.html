@@ -4,9 +4,10 @@
     <tk-scroll-down
       class="scroll-down"
       [class.slide-left]="isOverScroll(90)"
+      [class.hidden]="isOnProfile()"
     ></tk-scroll-down>
   </div>
-  <div class="contents-wrp" [class.show]="isOverScroll(300)">
+  <div class="contents-wrp" [class.show]="isOverScroll(00)">
     <tk-my-contents class="my-contents"></tk-my-contents>
     <tk-to-top-button
       (click)="scrollToAnchorPoint('HOME')"

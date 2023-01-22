@@ -13,6 +13,9 @@
   &.slide-left {
     left: 50px;
   }
+  &.hidden {
+    opacity: 0;
+  }
 }
 
 .heading-wrapper {
