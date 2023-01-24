@@ -12,9 +12,15 @@ import { CommonModule } from '@angular/common';
           <img src="/assets/my-image.jpg" alt="作成者のイメージ" class="my-image">
         </div>
         <div class="profile-item">
-          <div class="my-name">河村 智之</div>
-          <p>{{ currentYear }}現在、とある営業SaaSの自社開発企業に勤務。</p>
-          <p>京都府出身、大阪在住</p>
+          <div class="my-name">T.Kawamura</div>
+          <p>
+            {{ currentYear }}年現在、
+            <a href="https://www.salesnavi.co.jp/" target="_blank" rel="noopenr">
+              株式会社Sales Navi
+            </a>
+            にて営業SaaS開発に従事。
+          </p>
+          <p>京都出身、大阪在住。</p>
           <p>趣味はJリーグ観戦。ガンバ大阪サポーター。</p>
           <p>「世の中を効率的に、おもしろく」が座右の銘。</p>
           <p>良いコードとは？良い設計とは？探求の日々を過ごしています。</p>
