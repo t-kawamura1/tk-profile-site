@@ -6,6 +6,7 @@ import {ScrollDownComponent} from '../components/scroll-down/scroll-down.compone
 import {MyContentsComponent} from '../components/my-contents/my-contents.component';
 import {ToTopButtonComponent} from '../components/to-top-button/to-top-button.component';
 import {ProfileItemComponent} from './profile-item/profile-item.component';
+import {CareerItemComponent} from './career-item/career-item.component';
 
 export type ElementName =
   | 'HOME'
@@ -23,6 +24,7 @@ export type ElementName =
     ScrollDownComponent,
     MyContentsComponent,
     ToTopButtonComponent,
+    CareerItemComponent,
     ProfileItemComponent,
   ],
   templateUrl: './home.component.html',
@@ -32,6 +34,7 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('home') home!: ElementRef
   @ViewChild('career') career!: ElementRef
+  @ViewChild('careerItemWrp') careerItemWrp!: ElementRef
   @ViewChild('skill') skill!: ElementRef
   @ViewChild('profile') profile!: ElementRef
 
@@ -58,6 +61,11 @@ export class HomeComponent implements OnInit {
 
   isOverScroll(n: number): boolean {
     return window.scrollY > n
+  }
+
+  isOnCareerItemWrp(): boolean {
+    if (this.careerItemWrp === undefined) return false
+    return window.innerHeight > this.careerItemWrp.nativeElement.getBoundingClientRect().top
   }
 
   isOnProfile(): boolean {

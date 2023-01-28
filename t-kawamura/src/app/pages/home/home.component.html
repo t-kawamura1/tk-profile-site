@@ -20,7 +20,11 @@
       <div class="heading-wrapper">
         <h2 class="heading sec-fadein">CAREER</h2>
       </div>
-      <!-- <tk-portfolio-items></tk-portfolio-items> -->
+      <div class="ci-wrp" #careerItemWrp>
+        <tk-career-item
+          *ngIf="isOnCareerItemWrp()"
+        ></tk-career-item>
+      </div>
     </section>
     <section class="skill" #skill>
       <div class="heading-wrapper small">
