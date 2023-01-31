@@ -40,7 +40,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     @Inject(DOCUMENT) private readonly document: Document,
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     return
