@@ -30,7 +30,9 @@ const calculateToNowFrom = (start: DateTime): number => {
   ))
 }
 
-const experiences: ProgrammingExperiences = [
+export const monthsInProgramming = calculateToNowFrom(startSelf)
+
+export const experiences: ProgrammingExperiences = [
   [
     {
       name: 'HTML/CSS',

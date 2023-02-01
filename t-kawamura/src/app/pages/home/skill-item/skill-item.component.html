@@ -1,1 +1,11 @@
-<p>skill-item works!</p>
+<div class="container">
+  <div class="graph">
+    <div class="row" *ngFor="let data of experiences">
+      <div
+        class="bar"
+        *ngFor="let style of getBarStyles(data)"
+        [ngClass]="style"
+      ></div>
+    </div>
+  </div>
+</div>

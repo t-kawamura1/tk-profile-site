@@ -7,6 +7,7 @@ import {MyContentsComponent} from '../components/my-contents/my-contents.compone
 import {ToTopButtonComponent} from '../components/to-top-button/to-top-button.component';
 import {ProfileItemComponent} from './profile-item/profile-item.component';
 import {CareerItemComponent} from './career-item/career-item.component';
+import {SkillItemComponent} from './skill-item/skill-item.component';
 
 export type ElementName =
   | 'HOME'
@@ -26,6 +27,7 @@ export type ElementName =
     ToTopButtonComponent,
     CareerItemComponent,
     ProfileItemComponent,
+    SkillItemComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
