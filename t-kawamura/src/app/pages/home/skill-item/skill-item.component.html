@@ -1,11 +1,42 @@
 <div class="container">
-  <div class="graph">
-    <div class="row" *ngFor="let data of experiences">
+  <div class="legend">
+    <div>経験期間</div>
+    <div class="l-item">
+      <div class="l-box self"></div>
+      <div>独学</div>
+    </div>
+    <div class="l-item">
+      <div class="l-box business"></div>
+      <div>業務</div>
+    </div>
+  </div>
+  <div class="graph" [style]="getGraphWidth()">
+    <div class="y-axis-headline">
+      <div class="corner"></div>
       <div
-        class="bar"
-        *ngFor="let style of getBarStyles(data)"
-        [ngClass]="style"
-      ></div>
+        class="year-scale"
+        *ngFor="let y of arrOfYears"
+        [style]="getYearScaleWidth()"
+      >
+        <div class="y-axis-scale-label">{{ y }}</div>
+        <div class="y-axis-scale-line" [style]="getYAxisScaleLineHeight()"></div>
+      </div>
+    </div>
+    <div class="row-wrp">
+      <div class="x-axis-headline">
+        <div class="row-icon" *ngFor="let data of experiences">
+          <img class="icon" [src]="getIconPath(data)" alt="">
+        </div>
+      </div>
+      <div class="graph-body" [style]="getGraphBodyWidth()">
+        <div class="row" *ngFor="let data of experiences">
+          <div
+            class="bar"
+            *ngFor="let style of getBarStyles(data)"
+            [style]="style"
+          ></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

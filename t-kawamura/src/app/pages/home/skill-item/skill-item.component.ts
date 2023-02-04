@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {experiences, monthsInProgramming, ProgrammingExperiences} from './skill-data';
+import {experiences, Langs, monthsInProgramming, ProgrammingExperiences} from './skill-data';
 
 type Style = {[klass: string]: string}
 
@@ -11,58 +11,105 @@ type Style = {[klass: string]: string}
   templateUrl: './skill-item.component.html',
   styleUrls: ['./skill-item.component.scss']
 })
-export class SkillItemComponent implements OnInit {
+export class SkillItemComponent {
 
-  experiences: ProgrammingExperiences = []
+  readonly experiences = experiences
+  readonly yearsInProgramming = Math.floor(monthsInProgramming / 12)
+  readonly arrOfYears = new Array(this.yearsInProgramming).fill('').map((_, i) => `${i + 1}年`)
 
-  readonly rootWidth: number = 720
-  unitWidth: number = 0
-  readonly barHight: number = 24
+  readonly xAxisHeadlineWidth = 80
+  readonly graphWidth = 720
+  readonly graphBodyWidth = 720 - this.xAxisHeadlineWidth
+  readonly unitWidth = this.graphBodyWidth / monthsInProgramming
+  readonly barHight = 20
 
-  constructor( ) {
-    this.rootWidth = 720
-    this.barHight = 24
-  }
-
-  ngOnInit(): void {
-    this.unitWidth = this.rootWidth / monthsInProgramming
-    this.experiences = experiences
-  }
-
-  getBarStyles(
-    data: ProgrammingExperiences[number]
-  ): Style[] {
-    const styles = data.map(item => this._getBarStyleOfExperienceType(item))
-    if (styles.length === 2) {
-      styles[1]['position'] = 'absolute'
-      styles[1]['top'] = '0'
-      styles[1]['left'] = `${styles[0]['width']}px`
+  getGraphWidth(): Style {
+    return {
+      width: `${this.graphWidth}px`
     }
-    return styles
   }
 
-  private _getBarStyleOfExperienceType(
-    item: ProgrammingExperiences[number][number]
-  ): Style {
+  getGraphBodyWidth(): Style {
+    return {
+      width: `${this.graphBodyWidth}px`
+    }
+  }
+
+  getYearScaleWidth(): Style {
+    return {
+      width: `${this.unitWidth * 12}px`,
+    }
+  }
+
+  getYAxisScaleLineHeight(): Style {
+    return {
+      height: `${84 * this.experiences.length}px`,
+    }
+  }
+
+  getBarStyles(data: ProgrammingExperiences[number]): Style[] {
+    return data.map(item => this._getBarStyleOfExperienceType(item))
+  }
+
+  private _getBarStyleOfExperienceType(item: ProgrammingExperiences[number][number]): Style {
+    const baseStyle = {
+      width: `${item.months * this.unitWidth}px`,
+      height: `${this.barHight}px`,
+      borderRadius: `0 2px 2px 0`,
+    }
     const type = item.type
     switch (type) {
       case 'SELF':
         return {
-          position: 'relative',
-          width: `${item.months * this.unitWidth}px`,
-          height: `${this.barHight}px`,
-          backGroundColor: `green`
+          ...baseStyle,
+          backgroundColor: `#EFD37A`
         }
       case 'BUSINESS':
         return {
-          position: 'relative',
-          width: `${item.months * this.unitWidth}px`,
-          height: `${this.barHight}px`,
-          backGroundColor: `blue`
+          ...baseStyle,
+          backgroundColor: `#6AD2ED`
         }
       default:
         const unexpected: never = type
         throw Error('独学・業務以外にタイプが増えてまんがな。')
     }
+  }
+
+  getIconPath(data: ProgrammingExperiences[number]): string {
+    const name: Langs = data[0].name
+    let fileName: string
+    switch (name) {
+      case 'HTML':
+        fileName = 'html5.svg'
+        break
+      case 'CSS':
+        fileName = 'css3.svg'
+        break
+      case 'Angular':
+        fileName = 'angular.svg'
+        break
+      case 'Docker':
+        fileName = 'docker.svg'
+        break
+      case 'Java':
+        fileName = 'java-14.svg'
+        break
+      case 'JavaScript':
+        fileName = 'js.png'
+        break
+      case 'Ruby on Rails':
+        fileName = 'rails.svg'
+        break
+      case 'TypeScript':
+        fileName = 'ts.svg'
+        break
+      case 'Vue.js':
+        fileName = 'vue.svg'
+        break
+      default:
+        const unexpected: never = name
+        throw Error('扱える言語が増えたんかい？')
+    }
+    return `/assets/${fileName}`
   }
 }

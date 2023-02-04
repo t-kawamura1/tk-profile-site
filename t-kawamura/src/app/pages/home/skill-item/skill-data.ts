@@ -1,7 +1,8 @@
 import {DateTime} from 'luxon';
 
 export type Langs =
-  | 'HTML/CSS'
+  | 'HTML'
+  | 'CSS'
   | 'JavaScript'
   | 'TypeScript'
   | 'Angular'
@@ -35,12 +36,24 @@ export const monthsInProgramming = calculateToNowFrom(startSelf)
 export const experiences: ProgrammingExperiences = [
   [
     {
-      name: 'HTML/CSS',
+      name: 'HTML',
       type: 'SELF',
       months: calculateSelfSpan(startSelf)
     },
     {
-      name: 'HTML/CSS',
+      name: 'HTML',
+      type: 'BUSINESS',
+      months: calculateToNowFrom(startInBusiness)
+    },
+  ],
+  [
+    {
+      name: 'CSS',
+      type: 'SELF',
+      months: calculateSelfSpan(startSelf)
+    },
+    {
+      name: 'CSS',
       type: 'BUSINESS',
       months: calculateToNowFrom(startInBusiness)
     },
