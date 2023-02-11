@@ -32,10 +32,10 @@ $y-axis-headline-height:80px;
   height: 16px;
 
   &.self {
-    background-color: #EFD37A;
+    background-color: #FECE54;
   }
   &.business {
-    background-color: #6AD2ED;
+    background-color: #6EDDF1;
   }
 }
 
@@ -101,5 +101,30 @@ $y-axis-headline-height:80px;
   flex-direction: column;
   justify-content: center;
   gap: 8px;
-  // border-left: 1px solid #a3a3a3;
+}
+
+.bar {
+  position: relative;
+  &:hover {
+    transition: box-shadow .2s;
+    box-shadow: 2px 2px 4px #a3a3a3;
+  }
+
+  .tip {
+    position: absolute;
+    opacity: 0;
+    transition: opacity .2s;
+    top: 0;
+    left: calc(100% + 8px);
+    width: 80px;
+    height: 20px;
+    background-color: #6e6e6e;
+    color: white;
+    font-size: .8em;
+    padding: 4px 0;
+    box-shadow: 2px 2px 4px #a3a3a3;
+  }
+  &:hover > .tip{
+    opacity: 1;
+  }
 }

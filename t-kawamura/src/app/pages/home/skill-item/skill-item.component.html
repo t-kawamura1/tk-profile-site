@@ -32,9 +32,13 @@
         <div class="row" *ngFor="let data of experiences">
           <div
             class="bar"
-            *ngFor="let style of getBarStyles(data)"
-            [style]="style"
-          ></div>
+            *ngFor="let item of data"
+            [style]="getBarStyleOfExperienceType(item)"
+          >
+            <div class="tip">
+              {{ formatYMFromMonths(item.months) }}
+            </div>
+          </div>
         </div>
       </div>
     </div>

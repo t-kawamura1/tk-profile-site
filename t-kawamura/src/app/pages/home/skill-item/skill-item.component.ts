@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import {experiences, Langs, monthsInProgramming, ProgrammingExperiences} from './skill-data';
 
 type Style = {[klass: string]: string}
@@ -12,6 +12,10 @@ type Style = {[klass: string]: string}
   styleUrls: ['./skill-item.component.scss']
 })
 export class SkillItemComponent {
+
+  constructor(
+    @Inject(DOCUMENT) private readonly document: Document,
+  ) {}
 
   readonly experiences = experiences
   readonly yearsInProgramming = Math.floor(monthsInProgramming / 12)
@@ -47,11 +51,7 @@ export class SkillItemComponent {
     }
   }
 
-  getBarStyles(data: ProgrammingExperiences[number]): Style[] {
-    return data.map(item => this._getBarStyleOfExperienceType(item))
-  }
-
-  private _getBarStyleOfExperienceType(item: ProgrammingExperiences[number][number]): Style {
+  getBarStyleOfExperienceType(item: ProgrammingExperiences[number][number]): Style {
     const baseStyle = {
       width: `${item.months * this.unitWidth}px`,
       height: `${this.barHight}px`,
@@ -62,12 +62,12 @@ export class SkillItemComponent {
       case 'SELF':
         return {
           ...baseStyle,
-          backgroundColor: `#EFD37A`
+          backgroundColor: `#FECE54`
         }
       case 'BUSINESS':
         return {
           ...baseStyle,
-          backgroundColor: `#6AD2ED`
+          backgroundColor: `#6EDDF1`
         }
       default:
         const unexpected: never = type
@@ -111,5 +111,11 @@ export class SkillItemComponent {
         throw Error('扱える言語が増えたんかい？')
     }
     return `/assets/${fileName}`
+  }
+
+  formatYMFromMonths(months: number): string {
+    const y = Math.floor(months / 12)
+    const m = months % 12
+    return `${y}年${m}か月`
   }
 }
