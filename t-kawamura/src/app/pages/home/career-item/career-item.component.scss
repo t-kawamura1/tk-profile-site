@@ -4,6 +4,7 @@ $unit2: $unit * 2;
 $unit3: $unit * 3;
 $unit5: $unit * 5;
 $line-w: 2px;
+$unit-sec: 0.8s;
 
 .career {
   display: grid;
@@ -45,37 +46,37 @@ $line-w: 2px;
     grid-row: 3/4;
     grid-column: 5/6;
     opacity: 0;
-    animation: leaf-in 0.3s ease-out 2.0s forwards;
+    animation: leaf-in 0.3s ease-out $unit-sec * 2 forwards;
   }
   &.l3 {
     grid-row: 5/6;
     grid-column: 5/6;
     opacity: 0;
-    animation: leaf-in 0.3s ease-out 3.0s forwards;
+    animation: leaf-in 0.3s ease-out $unit-sec * 3 forwards;
   }
   &.l4 {
     grid-row: 5/6;
     grid-column: 1/2;
     opacity: 0;
-    animation: leaf-in 0.3s ease-out 4.0s forwards;
+    animation: leaf-in 0.3s ease-out $unit-sec * 4 forwards;
   }
   &.l5 {
     grid-row: 7/8;
     grid-column: 1/2;
     opacity: 0;
-    animation: leaf-in 0.3s ease-out 5.0s forwards;
+    animation: leaf-in 0.3s ease-out $unit-sec * 5 forwards;
   }
   &.l6 {
     grid-row: 9/10;
     grid-column: 3/4;
     opacity: 0;
-    animation: leaf-in 0.3s ease-out 7.0s forwards;
+    animation: leaf-in 0.3s ease-out $unit-sec * 7 forwards;
   }
   &.l7 {
     grid-row: 11/12;
     grid-column: 3/4;
     opacity: 0;
-    animation: leaf-in 0.3s ease-out 8.0s forwards;
+    animation: leaf-in 0.3s ease-out $unit-sec * 8 forwards;
   }
 
   &.bd-l {
@@ -141,7 +142,7 @@ $line-w: 2px;
   grid-column: 3/4;
   font-size: 1.2em;
   opacity: 0;
-  animation: continued 1.0s ease-out 10.0s forwards;
+  animation: continued 1.0s ease-out $unit-sec * 10 forwards;
 }
 @keyframes continued {
   0% {
@@ -200,7 +201,7 @@ $line-w: 2px;
     height: $unit3;
     background-color: $key-color;
     opacity: 0;
-    animation: connect-v 1.0s ease forwards;
+    animation: connect-v .5s ease forwards;
   }
   &::after {
     position: absolute;
@@ -213,7 +214,7 @@ $line-w: 2px;
     height: $line-w;
     background-color: $key-color;
     opacity: 0;
-    animation: connect-h 1.0s ease 1.0s forwards;
+    animation: connect-h .5s ease $unit-sec forwards;
   }
 }
 .cl2 {
@@ -231,7 +232,7 @@ $line-w: 2px;
     height: $unit2;
     background-color: $key-color;
     opacity: 0;
-    animation: connect-v 1.0s linear 2.0s forwards;
+    animation: connect-v .5s linear $unit-sec * 2 forwards;
   }
 }
 .cl3 {
@@ -249,7 +250,7 @@ $line-w: 2px;
     height: $line-w;
     background-color: $key-color;
     opacity: 0;
-    animation: connect-h 1.0s ease 3.0s forwards;
+    animation: connect-h .5s ease $unit-sec * 3 forwards;
   }
 }
 .cl4 {
@@ -267,7 +268,7 @@ $line-w: 2px;
     height: $unit2;
     background-color: $key-color;
     opacity: 0;
-    animation: connect-v 1.0s linear 4.0s forwards;
+    animation: connect-v .5s linear $unit-sec * 4 forwards;
   }
 }
 .cl5 {
@@ -285,7 +286,7 @@ $line-w: 2px;
     height: $line-w;
     background-color: $key-color;
     opacity: 0;
-    animation: connect-h 1.0s ease 5.0s forwards;
+    animation: connect-h .5s ease $unit-sec * 5 forwards;
   }
   &::after {
     position: absolute;
@@ -298,7 +299,7 @@ $line-w: 2px;
     height: $unit3;
     background-color: $key-color;
     opacity: 0;
-    animation: connect-v 1.0s ease 6.0s forwards;
+    animation: connect-v .5s ease $unit-sec * 6 forwards;
   }
 }
 .cl6 {
@@ -316,7 +317,7 @@ $line-w: 2px;
     height: $unit2;
     background-color: $key-color;
     opacity: 0;
-    animation: connect-v 1.0s linear 7.0s forwards
+    animation: connect-v .5s linear $unit-sec * 7 forwards
   }
 }
 .cl7 {
@@ -334,7 +335,7 @@ $line-w: 2px;
     height: $unit2;
     background-color: $key-color;
     opacity: 0;
-    animation: connect-v 1.0s ease-in 8.0s forwards;
+    animation: connect-v .5s ease-in $unit-sec * 8 forwards;
   }
   &::after {
     position: absolute;
@@ -347,7 +348,7 @@ $line-w: 2px;
     height: $unit2;
     border-left: 2px dashed $key-color;
     opacity: 0;
-    animation: dots 1.0s linear 9.0s forwards;
+    animation: dots .5s linear $unit-sec * 9 forwards;
   }
 }
 @keyframes dots {
