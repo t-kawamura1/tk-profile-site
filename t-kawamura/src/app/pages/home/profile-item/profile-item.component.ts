@@ -8,10 +8,10 @@ import { CommonModule } from '@angular/common';
   template: `
     <div class="profile-item">
       <div class="profile-inner">
-        <div class="profile-image-item">
+        <div class="profile-image">
           <img src="/assets/my-image.jpg" alt="作成者のイメージ" class="my-image">
         </div>
-        <div class="profile-item">
+        <div class="profile-text">
           <div class="my-name">T.Kawamura</div>
           <p>
             {{ currentYear }}年現在、

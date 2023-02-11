@@ -73,48 +73,39 @@
   padding: 280px 60px 460px;
 }
 
-.about-me {
-
-  .career {
-    padding: 0 90px 240px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -2;
-      background-color: #fcfcfc;
-      // transform: skewY(6deg);
-    }
+.career {
+  padding: 0 90px 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+    background-color: #fcfcfc;
+    // transform: skewY(6deg);
   }
-  .career-item {
-    display: none;
-    &.show {
-      display: block;
-    }
-  }
-  .skill {
-    padding: 0 100px 240px;
-    position: relative;
-    z-index: 2;
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      background-color: #f1f1f1;
-      // transform: skewY(-6deg);
-    }
+}
+.skill {
+  padding: 0 90px 240px;
+  position: relative;
+  z-index: 2;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #f1f1f1;
+    // transform: skewY(-6deg);
   }
 }
 
@@ -127,50 +118,46 @@
 
 @media (max-width: 768px) {
   .home {
-    background: none;
+    // background: none;
     *:hover {
       opacity: 1;
     }
-    .scroll-down {
-      display: none;
+    // .scroll-down {
+    //   display: none;
+    // }
+    // .sec-fadein {
+    //   opacity: 1;
+    //   transform: translateY(0);
+    //   transition: none;
+    // }
+  }
+  .heading-wrapper {
+    height: 200px;
+    &.small {
+      height: 200px
     }
-    .sec-fadein {
-      opacity: 1;
-      transform: translateY(0);
-      transition: none;
+    .heading {
+      font-size: 2rem;
     }
-    .heading-wrapper {
-      height: 200px;
-      &.small {
-        height: 200px
-      }
-      .heading {
-        font-size: 2rem;
-      }
-    }
-    .my-contents {
-      top: 93%;
-      right: 18%;
-    }
-    .hero {
-      padding: 160px 30px 160px;
-    }
+  }
+  .my-contents {
+    top: 93%;
+    right: 18%;
+  }
+  .hero {
+    padding: 160px 16px 160px;
+  }
 
-    .about-me {
-      .portfolio {
-        padding: 50px 30px 180px;
-      }
+  .career {
+    display: none;
+    padding: 50px 16px 180px;
+  }
 
-      .skills {
-        padding: 50px 30px 120px;
-      }
-
-      .stances {
-        padding: 50px 30px;
-      }
-    }
-    .profile {
-      padding: 50px 30px 120px;
-    }
+  .skill {
+    display: none;
+    padding: 50px 16px 120px;
+  }
+  .profile {
+    padding: 50px 16px 120px;
   }
 }
