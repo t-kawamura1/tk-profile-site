@@ -21,9 +21,16 @@
         <h2 class="heading sec-fadein">CAREER</h2>
       </div>
       <div class="ci-wrp" #careerItemWrp>
-        <tk-career-item
-          *ngIf="isOnCareerItemWrp()"
-        ></tk-career-item>
+        <ng-container *ngIf="isPc; else isMb">
+          <tk-career-item
+            *ngIf="isOnCareerItemWrp()"
+          ></tk-career-item>
+        </ng-container>
+        <ng-template #isMb>
+          <tk-mb-career-item
+            *ngIf="isOnCareerItemWrp()"
+          ></tk-mb-career-item>
+        </ng-template>
       </div>
     </section>
     <section class="skill" #skill>

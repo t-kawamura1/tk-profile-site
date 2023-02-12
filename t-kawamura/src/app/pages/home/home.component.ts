@@ -8,6 +8,7 @@ import {ToTopButtonComponent} from '../components/to-top-button/to-top-button.co
 import {ProfileItemComponent} from './profile-item/profile-item.component';
 import {CareerItemComponent} from './career-item/career-item.component';
 import {SkillItemComponent} from './skill-item/skill-item.component';
+import {MbCareerItemComponent} from './mb-career-item/mb-career-item.component';
 
 export type ElementName =
   | 'HOME'
@@ -26,6 +27,7 @@ export type ElementName =
     MyContentsComponent,
     ToTopButtonComponent,
     CareerItemComponent,
+    MbCareerItemComponent,
     ProfileItemComponent,
     SkillItemComponent,
   ],
@@ -40,9 +42,14 @@ export class HomeComponent implements OnInit {
   @ViewChild('skill') skill!: ElementRef
   @ViewChild('profile') profile!: ElementRef
 
+  get isPc() {
+    return window.matchMedia('(min-width: 769px)').matches
+  }
+
   constructor(
     @Inject(DOCUMENT) private readonly document: Document,
   ) {
+    console.log(this.isPc)
   }
 
   ngOnInit(): void {

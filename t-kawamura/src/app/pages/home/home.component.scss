@@ -122,9 +122,10 @@
     *:hover {
       opacity: 1;
     }
-    // .scroll-down {
-    //   display: none;
-    // }
+    .scroll-down,
+    .to-top-button {
+      display: none;
+    }
     // .sec-fadein {
     //   opacity: 1;
     //   transform: translateY(0);
@@ -149,7 +150,6 @@
   }
 
   .career {
-    display: none;
     padding: 50px 16px 180px;
   }
 
