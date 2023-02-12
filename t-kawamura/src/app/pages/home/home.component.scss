@@ -118,7 +118,6 @@
 
 @media (max-width: 768px) {
   .home {
-    // background: none;
     *:hover {
       opacity: 1;
     }
@@ -126,11 +125,6 @@
     .to-top-button {
       display: none;
     }
-    // .sec-fadein {
-    //   opacity: 1;
-    //   transform: translateY(0);
-    //   transition: none;
-    // }
   }
   .heading-wrapper {
     height: 200px;
@@ -154,8 +148,10 @@
   }
 
   .skill {
-    display: none;
     padding: 50px 16px 120px;
+  }
+  .skill-item {
+    width: fit-content;
   }
   .profile {
     padding: 50px 16px 120px;

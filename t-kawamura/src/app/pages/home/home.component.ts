@@ -49,7 +49,6 @@ export class HomeComponent implements OnInit {
   constructor(
     @Inject(DOCUMENT) private readonly document: Document,
   ) {
-    console.log(this.isPc)
   }
 
   ngOnInit(): void {

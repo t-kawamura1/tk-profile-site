@@ -17,15 +17,19 @@ export class SkillItemComponent {
     @Inject(DOCUMENT) private readonly document: Document,
   ) {}
 
+  get isPc() {
+    return window.matchMedia('(min-width: 769px)').matches
+  }
+
   readonly experiences = experiences
   readonly yearsInProgramming = Math.floor(monthsInProgramming / 12)
   readonly arrOfYears = new Array(this.yearsInProgramming).fill('').map((_, i) => `${i + 1}年`)
 
-  readonly xAxisHeadlineWidth = 80
-  readonly graphWidth = 720
-  readonly graphBodyWidth = 720 - this.xAxisHeadlineWidth
+  readonly xAxisHeadlineWidth = this.isPc ? 80 : 80 / 2
+  readonly graphWidth = this.isPc ? 720 : 720 / 2
+  readonly graphBodyWidth = this.graphWidth - this.xAxisHeadlineWidth
   readonly unitWidth = this.graphBodyWidth / monthsInProgramming
-  readonly barHight = 20
+  readonly barHight = this.isPc ? 20 : 20 / 2
 
   getGraphWidth(): Style {
     return {
@@ -46,16 +50,20 @@ export class SkillItemComponent {
   }
 
   getYAxisScaleLineHeight(): Style {
-    return {
-      height: `${84 * this.experiences.length}px`,
-    }
+    return this.isPc
+    ? {
+        height: `${84 * this.experiences.length}px`,
+      }
+    : {
+        height: `${84 / 2 * this.experiences.length}px`,
+      }
   }
 
   getBarStyleOfExperienceType(item: ProgrammingExperiences[number][number]): Style {
     const baseStyle = {
       width: `${item.months * this.unitWidth}px`,
       height: `${this.barHight}px`,
-      borderRadius: `0 2px 2px 0`,
+      borderRadius: this.isPc ? `0 2px 2px 0` : `0 1px 1px 0`,
     }
     const type = item.type
     switch (type) {
